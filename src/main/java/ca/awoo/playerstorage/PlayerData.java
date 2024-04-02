@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class PlayerData implements Serializable, Map<String, Serializable> {
-    private final HashMap<String, Serializable> data = new HashMap<>();
+public class PlayerData implements Serializable, Map<String, Object> {
+    private final HashMap<String, Object> data = new HashMap<>();
     private boolean modified = false;
     private long lastSave = 0;
 
@@ -48,24 +48,24 @@ public class PlayerData implements Serializable, Map<String, Serializable> {
     }
 
     @Override
-    public Serializable get(Object key) {
+    public Object get(Object key) {
         return data.get(key);
     }
 
     @Override
-    public Serializable put(String key, Serializable value) {
+    public Object put(String key, Object value) {
         modified = true;
         return data.put(key, value);
     }
 
     @Override
-    public Serializable remove(Object key) {
+    public Object remove(Object key) {
         modified = true;
         return data.remove(key);
     }
 
     @Override
-    public void putAll(Map<? extends String, ? extends Serializable> m) {
+    public void putAll(Map<? extends String, ? extends Object> m) {
         data.putAll(m);
         modified = true;
     }
@@ -76,12 +76,12 @@ public class PlayerData implements Serializable, Map<String, Serializable> {
     }
 
     @Override
-    public Collection<Serializable> values() {
+    public Collection<Object> values() {
         return data.values();
     }
 
     @Override
-    public Set<Entry<String, Serializable>> entrySet() {
+    public Set<Entry<String, Object>> entrySet() {
         return data.entrySet();
     }
 
