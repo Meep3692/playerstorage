@@ -1,0 +1,3 @@
+name: PlayerStorage
+version: '${project.version}'
+main: ca.awoo.playerstorage.PlayerStorage
